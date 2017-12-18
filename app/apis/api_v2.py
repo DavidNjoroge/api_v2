@@ -7,8 +7,8 @@ from ..models import Team,Match,League,Country
 from .. import db
 import datetime as dt
 from dateutil.parser import parse
-
-
+from ..crawler import init_driver,lookup
+from ..bs_crawler import livescore
 
 api = Namespace('v2', description='some api calls')
 
@@ -54,4 +54,18 @@ class Scraped_fixtures(Resource):
         matches=Match.get_week(number)
         results = {'week': matches}
         return jsonify(results)
+
+@api.route('/crawl',methods=['GET','POST'])
+class Crawler(Resource):
+    def get(self):
+        # matches=Match.get_week(number)
+        # results = {'week': matches}
+        # return jsonify(results)
+        # driver = init_driver()
+        # status = lookup(driver)
+        # time.sleep(5)
+        # driver.quit()
+        data = livescore()
+        return jsonify(data)
+
 
