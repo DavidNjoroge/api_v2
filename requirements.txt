@@ -28,5 +28,5 @@ selenium==3.8.0
 six==1.11.0
 SQLAlchemy==1.1.15
 swagger-spec-validator==2.1.0
-urllib3==1.22
+urllib3==1.26.5
 Werkzeug==0.12.2
